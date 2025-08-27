@@ -1,3 +1,4 @@
+// Package logger provides a zap-based application logger.
 package logger
 
 import "go.uber.org/zap"

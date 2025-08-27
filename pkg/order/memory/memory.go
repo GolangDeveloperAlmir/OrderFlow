@@ -1,3 +1,4 @@
+// Package memory implements an in-memory order repository.
 package memory
 
 import (

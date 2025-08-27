@@ -1,3 +1,4 @@
+// Package postgres stores orders in PostgreSQL.
 package postgres
 
 import (

@@ -15,6 +15,12 @@ export DATABASE_URL=postgres://user:pass@localhost:5432/orderflow?sslmode=disabl
 export REDIS_ADDR=localhost:6379
 ```
 
+Generate self-signed TLS certificates (ignored by git):
+
+```bash
+make certs
+```
+
 Run the server with TLS enabled:
 
 ```bash
