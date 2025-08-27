@@ -1,0 +1,44 @@
+{
+  "info": {
+    "name": "OrderFlow",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "url": {
+          "raw": "https://localhost:8443/login",
+          "protocol": "https",
+          "host": ["localhost"],
+          "port": "8443",
+          "path": ["login"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"user\",\n  \"password\": \"pass\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "https://localhost:8443/orders", "protocol": "https", "host": ["localhost"], "port": "8443", "path": ["orders"]},
+        "body": {"mode": "raw", "raw": "{\n  \"item\": \"widget\",\n  \"quantity\": 1\n}"}
+      }
+    },
+    {
+      "name": "List Orders",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "https://localhost:8443/orders", "protocol": "https", "host": ["localhost"], "port": "8443", "path": ["orders"]}
+      }
+    }
+  ]
+}
