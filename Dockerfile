@@ -3,7 +3,7 @@ WORKDIR /src
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
-RUN CGO_ENABLED=0 go build -o orderflow .
+RUN CGO_ENABLED=0 go build -o orderflow ./cmd/api
 
 FROM alpine:3.19
 WORKDIR /app

@@ -1,9 +1,10 @@
 # OrderFlow
 
-OrderFlow is an order management service written in Go. It exposes a REST API
-over HTTPS with PostgreSQL persistence, Redis-backed authentication sessions
-and generated Swagger documentation. A simple React/TypeScript frontend is
-provided under `frontend/`.
+OrderFlow is an order management service written in Go using a DDD-style
+layout. It exposes a REST API over HTTPS with PostgreSQL persistence,
+Redis-backed authentication sessions and generated Swagger documentation. A
+simple React/TypeScript frontend lives under `frontend/` and communicates with
+the API.
 
 ## Running
 
@@ -17,7 +18,7 @@ export REDIS_ADDR=localhost:6379
 Run the server with TLS enabled:
 
 ```bash
-go run .
+go run ./cmd/api
 ```
 
 The server listens on `https://localhost:8443`.
@@ -27,6 +28,9 @@ The server listens on `https://localhost:8443`.
 * `POST /login` – authenticate and receive a session cookie stored in Redis.
 * `POST /orders` – create an order.
 * `GET /orders` – list all stored orders.
+* `GET /orders/{id}` – retrieve an order by ID.
+* `PUT /orders/{id}` – update an order.
+* `DELETE /orders/{id}` – remove an order.
 
 Swagger docs are generated into the `docs/` directory and served at
 `/swagger/index.html`.
@@ -37,6 +41,7 @@ Run unit tests and other helpers via the provided `Makefile`:
 
 ```bash
 make test   # run Go unit tests
+cd frontend && yarn build # build React frontend
 make swag   # regenerate swagger documentation
 make docker # start services with docker-compose
 ```
